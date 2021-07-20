@@ -1,0 +1,67 @@
+@startuml
+
+actor Client
+participant fastify
+participant GitHubService
+participant Cache
+participant GitHubAPI
+
+note right of GitHubService
+  GitHubService is a local class
+end note
+
+Client->fastify: GET /v1/google/repositories
+fastify->GitHubService: getOrgRepos(google)
+GitHubService->Cache: get(/org/google)
+Cache->GitHubService: cachedOrgInfo & cachedEtag
+GitHubService->GitHubAPI: get(/org/google) w/ETag header
+GitHubAPI->GitHubService: statusCode, orgInfo, etag
+
+alt #lightgreen 200 OK
+    GitHubService->Cache: save response for org
+else #aqua 304 Not Modified
+    note right of GitHubService
+        Use cached data
+    end note
+else #FFAAAA Failure
+    GitHubService->GitHubService: retry N times, then throw
+end
+
+GitHubService->GitHubService: Use orgInfo to generate\npaths for API pagination\npages = generatePages(orgInfo)
+
+group For page in pages
+    GitHubService->Cache: get(page URL)
+    Cache->GitHubService: cached repos for page & etag
+
+    alt if org etag has changed since last refresh of repos
+            GitHubService->GitHubAPI: get(page URL) w/ETag header
+            GitHubAPI->GitHubService: statusCode, page, etag
+        alt #lightgreen 200 OK
+            GitHubService->Cache: save response for page
+        else #aqua 304 Not Modified
+            note right of GitHubService
+                Use cached data
+            end note
+        else #FFAAAA Failure
+            GitHubService->GitHubService: retry N times, then throw
+        end
+
+    else if org etag has NOT changed since last refresh of repos
+        note right of GitHubService
+          If org etag has not changed, then assume
+          we do not need to update repo information.
+          This assumption helps reduce requests to API,
+          since fields like "updated_at" change often.
+        end note
+    end
+end
+
+GitHubService->GitHubService: Concatenate pages from API\nrespones into single structure
+
+GitHubService->fastify: return repo list
+fastify->Client: 200 OK & repo list
+
+
+
+
+@enduml
