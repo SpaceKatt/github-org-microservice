@@ -167,7 +167,7 @@ export class GitHubService {
         org: string,
         newEtag: string,
     ): Promise<void> {
-        if (this.repoLastEtag[org] || newEtag !== this.repoLastEtag[org]) {
+        if (!this.repoLastEtag[org] || newEtag !== this.repoLastEtag[org]) {
             this.cache.set(this.getLastRepoRefreshKey(org), newEtag);
             this.repoLastEtag[org] = newEtag;
         }
