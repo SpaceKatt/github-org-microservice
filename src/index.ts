@@ -13,6 +13,7 @@ const ghService = new GitHubService(gitHubServiceOpts);
 
 const API_VERSION = '/v1';
 const SERVER_PORT = 8080;
+const SERVER_HOST = '127.0.0.1';
 const TMP_FILE_PATH = '/tmp/knock_interview.json.gz';
 
 interface OrgParams {
@@ -78,7 +79,7 @@ server.put<{ Params: OrgParams }>(
     },
 );
 
-server.listen(SERVER_PORT, (err, address) => {
+server.listen(SERVER_PORT, SERVER_HOST, (err, address) => {
     if (err) {
         console.error(err);
         process.exit(1);
