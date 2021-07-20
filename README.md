@@ -144,6 +144,8 @@ Results from pipeline runs may be [viewed on GitHub](https://github.com/SpaceKat
 
 ### Continuous Delivery
 
+Continuous delivery is not yet implemented, although it is on the roadmap.
+
 ## Decision Log
 
 | Decision                                                     | Brief Description                                        |
