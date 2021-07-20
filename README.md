@@ -9,6 +9,18 @@ Sample microservice to fetch, cache, and serve information about GitHub organiza
     - [Context](#context)
     - [Endpoint Definition](#endpoint-definition)
     - [Basic Data Flow](#basic-data-flow)
+  - [Development](#development)
+    - [Build Toolchain Setup](#build-toolchain-setup)
+      - [Install `node14`, using `nvm`](#install-node14-using-nvm)
+      - [Install `tsc` (and other Typescript support)](#install-tsc-and-other-typescript-support)
+      - [Install `eslint` and `jest`](#install-eslint-and-jest)
+    - [Install Dependencies](#install-dependencies)
+    - [Build Project](#build-project)
+    - [Test Project](#test-project)
+    - [Lint Project](#lint-project)
+  - [CI/CD](#cicd)
+    - [Continuous Integration](#continuous-integration)
+    - [Continuous Delivery](#continuous-delivery)
   - [Decision Log](#decision-log)
 
 ## MVP Design Intent
@@ -49,6 +61,78 @@ The following diagram depicts an abstract description of how data flows througho
 ![Client request flow diagram](docs/diagrams/out/user-data-flow.png)
 
 The `PUT /v1/{org/repositories/to_file` endpoint has a very similar data flow. Instead of returning the repository list to the client, the server simply save the data locally and returns `201 Created`. (The author will leave making a corresponding diagram as an exercise for the reader.)
+
+## Development
+
+This section describes how to set up a development environment for this project.
+Setup is also [well documented in CI](https://github.com/SpaceKatt/github-org-microservice/actions/workflows/ci.yml).
+
+### Build Toolchain Setup
+
+This section describes how to set up the project's build toolchain.
+`node14` was used in the development and testing of this project.
+`nvm` is recommended for devs who manage multiple versions of NodeJS.
+
+#### Install `node14`, using `nvm`
+
+```bash
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+source ~/.bashrc
+
+# Install node14
+nvm install 14
+nvm use 14
+```
+
+#### Install `tsc` (and other Typescript support)
+
+Transpilation of TypeScript into JavaScript require `tsc` to be installed.
+Assuming the author is using Ubuntu (or has the `apt` package manager)...
+
+```bash
+sudo apt install install -y node-typescript
+```
+
+#### Install `eslint` and `jest`
+
+Testing and linting this project requires `eslint` and `jest` to be installed globally.
+
+```bash
+npm i -g eslint jest
+```
+
+### Install Dependencies
+
+Use `npm` to install project dependencies.
+
+```bash
+npm i
+```
+
+### Build Project
+
+```bash
+npm run build
+```
+
+### Test Project
+
+```bash
+npm run test
+```
+
+### Lint Project
+
+```bash
+npm run lint
+```
+
+## CI/CD
+
+### Continuous Integration
+
+### Continuous Delivery
 
 ## Decision Log
 
