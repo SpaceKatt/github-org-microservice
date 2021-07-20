@@ -8,6 +8,7 @@ Sample microservice to fetch, cache, and serve information about GitHub organiza
   - [MVP Design Intent](#mvp-design-intent)
     - [Context](#context)
     - [Endpoint Definition](#endpoint-definition)
+      - [Sample `curl` commands](#sample-curl-commands)
     - [Basic Data Flow](#basic-data-flow)
   - [Development](#development)
     - [Build Toolchain Setup](#build-toolchain-setup)
@@ -53,6 +54,18 @@ Two endpoints will be exposed by our microservice...
 | ------------------------------------ | ---------------------------------------- | --------------------------------------------- |
 | `GET /v1/{org}/repositories`         | Get repository info for an organization. | `[{"name": "repo1"}, ..., {"name": "repoN"}]` |
 | `PUT /v1/{org}/repositories/to_file` | Save repository info in `/tmp`           | `201 Created`                                 |
+
+#### Sample `curl` commands
+
+Assuming server is running on `127.0.0.1:8000` (default if using `npm start`)...
+
+```bash
+# Get org public repos
+curl 127.0.0.1:8080/v1/google/repositories
+
+# Save org public repos to file on server
+curl -v -X PUT 127.0.0.1:8080/v1/google/repositories/to_file
+```
 
 ### Basic Data Flow
 
