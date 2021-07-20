@@ -26,7 +26,7 @@ Sample microservice to fetch, cache, and serve information about GitHub organiza
 
 ## MVP Design Intent
 
-The `GitHub Org Microservice` is intended to be a proof-of-concept (PoC) for building a small service that caches public repository listing for an organization of GitHub.
+The `GitHub Org Microservice` is intended to be a proof-of-concept (PoC) for building a small service that caches public repository listings for an organization on GitHub.
 [Fastify](https://www.fastify.io/) is used as the web framework for this PoC.
 
 ### Context
@@ -43,7 +43,7 @@ Google is the target organization for this PoC, and its scale presents several c
 -   Repositories are numerous enough to require several pages from the paginated API.
 
 Individual repositories are updated often, although their names are updated infrequently.
-Thus, we assume that cached repository information will remain relevant until an organization's ETag changes (at which point it becomes stale).
+Thus, we assume that cached repository information will remain relevant until an organization's ETag changes (at which point the org's repo cache becomes stale).
 This assumption will save us from making unnecessary requests to the API.
 
 ### Endpoint Definition
@@ -57,7 +57,7 @@ Two endpoints will be exposed by our microservice...
 
 #### Sample `curl` commands
 
-Assuming server is running on `127.0.0.1:8000` (default if using `npm start`)...
+Assuming server is running on `127.0.0.1:8000` (i.e., the default if using `npm start`)...
 
 ```bash
 # Get org public repos
