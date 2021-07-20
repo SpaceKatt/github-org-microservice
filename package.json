@@ -1,0 +1,27 @@
+{
+  "name": "github-org-microservice",
+  "version": "1.0.0",
+  "description": "Sample microservice to fetch, cache, and serve information about GitHub organizations and their public repos.",
+  "main": "build/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest --config=.jest.config.js --colors --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpaceKatt/github-org-microservice.git"
+  },
+  "keywords": [
+    "github",
+    "org",
+    "cache"
+  ],
+  "author": "Thomas Kercheval",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SpaceKatt/github-org-microservice/issues"
+  },
+  "homepage": "https://github.com/SpaceKatt/github-org-microservice#readme"
+}
