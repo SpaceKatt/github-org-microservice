@@ -68,8 +68,8 @@ export const getRequest = async (
             if (reason.response!.status === 304) {
                 return undefined;
             }
-            console.log(reason);
 
+            console.error(reason);
             throw new Error('No valid response from GET request');
         });
 };

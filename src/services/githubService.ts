@@ -63,7 +63,6 @@ export class GitHubService {
         const cachedData = (await this.cache.get(path)) as GitHubCachePayload;
 
         if (cachedData && !refreshCache) {
-            console.log('used cache => no refresh!!');
             return {
                 data: cachedData.data,
                 usedCache: true,
@@ -86,15 +85,12 @@ export class GitHubService {
 
         // If undefined, then 304 indicates no update at service (use cached)
         if (!response) {
-            console.log('used cache');
             return {
                 data: cachedData.data,
                 usedCache: true,
                 etag: cachedData.etag,
             };
         }
-
-        console.log('did NOT use cache');
 
         const mappedData = dataMap(response);
 
