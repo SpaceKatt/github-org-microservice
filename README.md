@@ -138,6 +138,10 @@ npm run lint
 
 ### Continuous Integration
 
+Continuous integration is performed with [GitHub Actions](https://github.com/features/actions).
+Process is defined by [the workflow manifest](./.github/workflows/ci.yml).
+Results from pipeline runs may be [viewed on GitHub](https://github.com/SpaceKatt/github-org-microservice/actions/workflows/ci.yml).
+
 ### Continuous Delivery
 
 ## Decision Log
