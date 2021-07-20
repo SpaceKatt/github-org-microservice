@@ -1,5 +1,7 @@
 # GitHub Org Microservice
 
+[![GH Org Microservice CI](https://github.com/SpaceKatt/github-org-microservice/actions/workflows/ci.yml/badge.svg)](https://github.com/SpaceKatt/github-org-microservice/actions/workflows/ci.yml)
+
 Sample microservice to fetch, cache, and serve information about GitHub organizations and their public repos.
 
 - [GitHub Org Microservice](#github-org-microservice)
@@ -23,9 +25,9 @@ Luckily, ETags are provided to enable [conditional requests](https://docs.github
 
 Google is the target organization for this PoC, and its scale presents several considerations...
 
-- Repositories are updated often.
-- Repositories are added/removed frequently.
-- Repositories are numerous enough to require several pages from the paginated API.
+-   Repositories are updated often.
+-   Repositories are added/removed frequently.
+-   Repositories are numerous enough to require several pages from the paginated API.
 
 Individual repositories are updated often, although their names are updated infrequently.
 Thus, we assume that cached repository information will remain relevant until an organization's ETag changes (at which point it becomes stale).
