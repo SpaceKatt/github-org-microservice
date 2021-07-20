@@ -69,7 +69,7 @@ curl -v -X PUT 127.0.0.1:8080/v1/google/repositories/to_file
 
 ### Basic Data Flow
 
-The following diagram depicts an abstract description of how data flows throughout the system when a client makes a request to the `GET /v1/{org}/repositories` endpoint.
+The following diagram depicts an abstract representation of how data flows through the system when a client makes a request to the `GET /v1/{org}/repositories` endpoint.
 
 ![Client request flow diagram](docs/diagrams/out/user-data-flow.png)
 
@@ -80,17 +80,17 @@ The `PUT /v1/{org}/repositories/to_file` endpoint has a very similar data flow. 
 This section describes how to set up a development environment for this project.
 Setup is also [well documented in CI](https://github.com/SpaceKatt/github-org-microservice/actions/workflows/ci.yml).
 
-### Build Toolchain Setup
-
-This section describes how to set up the project's build toolchain.
-`node14` was used in the development and testing of this project.
-`nvm` is recommended for devs who manage multiple versions of NodeJS.
-
 > For Ease of use, a script is provided to run && build the project in a single command. (Requires `sudo`.)
 >
 > ```bash
 > ./install-build-run.sh
 > ```
+
+### Build Toolchain Setup
+
+This section describes how to set up the project's build toolchain.
+`node14` was used in the development and testing of this project.
+[`nvm`](https://github.com/nvm-sh/nvm) is recommended for devs who manage multiple versions of NodeJS.
 
 #### Install `node14`, using `nvm`
 
