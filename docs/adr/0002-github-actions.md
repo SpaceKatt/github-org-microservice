@@ -6,7 +6,9 @@ Date: 2021-07-19
 
 GitHub Actions provide an environment for performing continuous integration and delivery.
 
-TravisCI has been used by the author for previous project and has recently changed their free tier.
+TravisCI has been used by the author for previous projects.
+
+TravisCI has recently changed their free tier offering.
 
 ## Decision
 
