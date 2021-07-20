@@ -39,6 +39,7 @@ server.get<{ Params: OrgParams }>(
             orgRepos = await ghService.getOrgRepos(org);
         } catch {
             reply.code(500).send('Internal error => LOL\n');
+            return;
         }
 
         reply
@@ -70,6 +71,7 @@ server.put<{ Params: OrgParams }>(
             await writeCompressedFile(orgRepos, TMP_FILE_PATH);
         } catch {
             reply.code(500).send('Internal error => LOL\n');
+            return;
         }
 
         reply.code(201).send();
