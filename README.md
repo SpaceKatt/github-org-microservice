@@ -73,10 +73,10 @@ This section describes how to set up the project's build toolchain.
 `node14` was used in the development and testing of this project.
 `nvm` is recommended for devs who manage multiple versions of NodeJS.
 
-> For Ease of use, a script is provided to run && build the project in a single command.
+> For Ease of use, a script is provided to run && build the project in a single command. (Requires `sudo`.)
 >
 > ```bash
-> sudo ./install-build-run.sh
+> ./install-build-run.sh
 > ```
 
 #### Install `node14`, using `nvm`
