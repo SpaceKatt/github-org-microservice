@@ -76,7 +76,7 @@ export const getRequest = async (
 
 const DELAY_MS_BETWEEN_REQUESTS = 300;
 
-export const delay = async (ms: number) => {
+export const delay = async (ms: number): Promise<string> => {
     return new Promise((resolve) => setTimeout(resolve, ms, ''));
 };
 

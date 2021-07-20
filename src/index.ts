@@ -1,8 +1,8 @@
 import { CacheType } from './interfaces';
 import { GitHubService, GitHubServiceOps } from './services';
+import { writeCompressedFile } from './utils/helpers';
 
 import * as fastify from 'fastify';
-import { writeCompressedFile } from './utils/helpers';
 
 const gitHubServiceOpts: GitHubServiceOps = {
     cacheType: CacheType.FILE,
