@@ -1,6 +1,6 @@
 import { CacheType } from './interfaces';
 import { GitHubService, GitHubServiceOps } from './services';
-import { writeCompressedFile } from './utils/helpers';
+import { writeCompressedFile } from './utils';
 
 import * as fastify from 'fastify';
 

@@ -1,6 +1,6 @@
 import { Cache, CacheType } from '../interfaces';
 import { CacheFactory, CacheFactoryOpts } from '../factories';
-import { getRequestWithRetry } from '../utils/helpers';
+import { getRequestWithRetry } from '../utils';
 
 import { AxiosResponse } from 'axios';
 

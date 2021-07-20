@@ -1,9 +1,5 @@
 import { Cache } from '../interfaces';
-import {
-    readCompressedFile,
-    utfToHex,
-    writeCompressedFile,
-} from '../utils/helpers';
+import { readCompressedFile, utfToHex, writeCompressedFile } from '../utils';
 
 import * as fs from 'fs';
 import * as path from 'path';
