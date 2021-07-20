@@ -60,7 +60,7 @@ The following diagram depicts an abstract description of how data flows througho
 
 ![Client request flow diagram](docs/diagrams/out/user-data-flow.png)
 
-The `PUT /v1/{org/repositories/to_file` endpoint has a very similar data flow. Instead of returning the repository list to the client, the server simply save the data locally and returns `201 Created`. (The author will leave making a corresponding diagram as an exercise for the reader.)
+The `PUT /v1/{org}/repositories/to_file` endpoint has a very similar data flow. Instead of returning the repository list to the client, the server simply saves the data locally and returns `201 Created`. (The author will leave making a corresponding diagram as an exercise for the reader.)
 
 ## Development
 
@@ -72,6 +72,12 @@ Setup is also [well documented in CI](https://github.com/SpaceKatt/github-org-mi
 This section describes how to set up the project's build toolchain.
 `node14` was used in the development and testing of this project.
 `nvm` is recommended for devs who manage multiple versions of NodeJS.
+
+> For Ease of use, a script is provided to run && build the project in a single command.
+>
+> ```bash
+> sudo ./install-build-run.sh
+> ```
 
 #### Install `node14`, using `nvm`
 
