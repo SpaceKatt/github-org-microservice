@@ -2,7 +2,7 @@
 
 [![GH Org Microservice CI](https://github.com/SpaceKatt/github-org-microservice/actions/workflows/ci.yml/badge.svg)](https://github.com/SpaceKatt/github-org-microservice/actions/workflows/ci.yml)
 
-Sample microservice to fetch, cache, and serve information about GitHub organizations and their public repos.
+Sample microservice to fetch, cache, and serve information about GitHub organizations and their public repositories.
 
 - [GitHub Org Microservice](#github-org-microservice)
   - [MVP Design Intent](#mvp-design-intent)
@@ -34,7 +34,7 @@ The `GitHub Org Microservice` is intended to be a proof-of-concept (PoC) for bui
 We wish to serve information about public repositories in a GitHub organization. Hopefully, we can do this at the lowest cost for ourselves and GitHub's API.
 
 GitHub performs [rate limiting](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting) on its public APIs.
-Luckily, ETags are provided to enable [conditional requests](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#conditional-requests) and enable cache use. Thus, we will use a cache to keep a local copy of API results.
+Luckily, ETags are provided to enable [conditional requests](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#conditional-requests) and cache use. Thus, we will use a cache to keep a local copy of API results.
 
 Google is the target organization for this PoC, and its scale presents several considerations...
 
@@ -57,7 +57,7 @@ Two endpoints will be exposed by our microservice...
 
 #### Sample `curl` commands
 
-Assuming server is running on `127.0.0.1:8000` (i.e., the default if using `npm start`)...
+Assuming server is running on `127.0.0.1:8080` (i.e., the default if using `npm start`)...
 
 ```bash
 # Get org public repos
@@ -80,9 +80,10 @@ The `PUT /v1/{org}/repositories/to_file` endpoint has a very similar data flow. 
 This section describes how to set up a development environment for this project.
 Setup is also [well documented in CI](https://github.com/SpaceKatt/github-org-microservice/actions/workflows/ci.yml).
 
-> For Ease of use, a script is provided to run && build the project in a single command. (Requires `sudo`.)
+> For Ease of use, a script is provided to install dependencies, build, && run the project in a single command. (Requires `sudo`.)
 >
 > ```bash
+> # Assumes `node14` and `npm` are installed
 > ./install-build-run.sh
 > ```
 
@@ -106,7 +107,7 @@ nvm use 14
 
 #### Install `tsc` (and other Typescript support)
 
-Transpilation of TypeScript into JavaScript require `tsc` to be installed.
+Transpilation of TypeScript into JavaScript requires `tsc` to be installed.
 Assuming the author is using Ubuntu (or has the `apt` package manager)...
 
 ```bash
@@ -115,7 +116,7 @@ sudo apt install install -y node-typescript
 
 #### Install `eslint` and `jest`
 
-Testing and linting this project requires `eslint` and `jest` to be installed globally.
+Testing and linting this project requires [`eslint`](https://eslint.org/) and [`jest`](https://jestjs.io/) to be installed globally.
 
 ```bash
 npm i -g eslint jest
