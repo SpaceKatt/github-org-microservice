@@ -1,4 +1,3 @@
-import { writeCompressedFile } from '../utils';
 import { FileCache } from './fileCache';
 
 const TESTING_CACHE_NAME = 'lmao_test_cache';
