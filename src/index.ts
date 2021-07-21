@@ -4,17 +4,17 @@ import { writeCompressedFile } from './utils';
 
 import * as fastify from 'fastify';
 
-const gitHubServiceOpts: GitHubServiceOps = {
-    cacheType: CacheType.FILE,
-};
-
-const server = fastify.fastify();
-const ghService = new GitHubService(gitHubServiceOpts);
-
 const API_VERSION = '/v1';
 const SERVER_PORT = 8080;
 const SERVER_HOST = '127.0.0.1';
 const TMP_FILE_PATH = '/tmp/knock_interview.json.gz';
+
+const gitHubServiceOpts: GitHubServiceOps = {
+    cacheType: CacheType.FILE,
+};
+const ghService = new GitHubService(gitHubServiceOpts);
+
+const server = fastify.fastify();
 
 interface OrgParams {
     org: string;

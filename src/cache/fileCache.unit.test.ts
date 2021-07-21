@@ -1,6 +1,7 @@
 import { FileCache } from './fileCache';
 
 const TESTING_CACHE_NAME = 'lmao_test_cache';
+const badKey = 'BAD_KEY';
 const sampleKey = 'ree';
 const sampleData = {
     foo: 'bar',
@@ -22,7 +23,7 @@ describe('Testing FileCache', () => {
     });
 
     it('Returns undefined on cache miss', async () => {
-        const c = await fCache.get('BAD_KEY');
+        const c = await fCache.get(badKey);
 
         expect(c).toBeUndefined();
     });
@@ -31,7 +32,7 @@ describe('Testing FileCache', () => {
         await fCache.set('keyOne', sampleData);
         await fCache.set('keyTwo', sampleData);
         await fCache.set('keyThree', sampleData);
-        const c = await fCache.get('BAD_KEY');
+        const c = await fCache.get(badKey);
 
         expect(c).toBeUndefined();
     });
